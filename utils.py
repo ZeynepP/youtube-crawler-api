@@ -33,15 +33,12 @@ def dump_crawled_videos(ids, filename, folder, mode="a+"):
     return file
 
 
-
-# TODO read this from s3
 def get_crawled_videos(filename, folder):
     file = os.path.join(folder, filename)
     lines = []
     try:
         with open(file) as f:
-            for line in f:
-                lines.append(line.strip())
+            lines = f.readlines()
     except:
         pass
     return lines
