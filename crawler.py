@@ -36,7 +36,6 @@ def youtube_crawler(playlists, video_ids, published_after, published_before, tok
 
     client = YouTubeAPIClientGoogle(tokens, logger)
 
-
     try:
         video_filter = get_crawled_videos("youtube.meta", "data")
     except:
@@ -85,11 +84,20 @@ def youtube_crawler(playlists, video_ids, published_after, published_before, tok
 if __name__ == "__main__":
     logger = logging.getLogger(__name__)
     logger.info("Starting YouTube crawler")
+
+    # All data can be read from config file it is just an example script
+
     playlists = input("Enter comma seperated playlists or handles / empty: ")
     video_ids = input("Enter comma seperated video ids / no need if playlists provided: ")
     published_after = input("Enter start date YYYY-MM-DD: ")
     published_before = input("Enter end date YYYY-MM-DD: ")
     tokens = input("Enter comma seperated tokens: ")
+    if not tokens or tokens[0] == "":
+        logging.error("No API tokens provided.")
+        exit()
+
+
+
     youtube_crawler(playlists, video_ids, published_after, published_before, tokens)
 
 
