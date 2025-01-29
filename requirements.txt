@@ -3,4 +3,3 @@ google-api-python-client
 bs4
 requests
 ebbe
-bloomfilter-py

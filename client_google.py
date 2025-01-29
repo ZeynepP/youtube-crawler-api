@@ -98,8 +98,7 @@ class YouTubeAPIClientGoogle(object):
                                 sleep_time = seconds_to_midnight_pacific_time() + 10
                                 time.sleep(sleep_time)
                                 self.reset_keys()
-                                self.get_channel_video_ids(channel_id, published_after, published_before,
-                                                           next_page_token)
+
 
             for item in res["items"]:
                 ids.append(item["id"]["videoId"])
@@ -148,7 +147,7 @@ class YouTubeAPIClientGoogle(object):
                                 sleep_time = seconds_to_midnight_pacific_time() + 10
                                 time.sleep(sleep_time)
                                 self.reset_keys()
-                                self.get_playlist_video_ids(playlist_id, next_page_token)
+
 
 
             for item in res["items"]:
